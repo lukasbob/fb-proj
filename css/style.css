@@ -1,0 +1,10 @@
+body {
+	font: 17px/1.4 "Gill Sans";
+}
+body > div {
+	margin: 0 auto;
+	width: 500px;
+}
+.post {
+	border-bottom: 1px solid #efefef;
+}

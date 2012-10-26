@@ -1,0 +1,334 @@
+{
+  "id": "122386617773431",
+  "feed": {
+    "data": [
+      {
+        "message": "Tak til Martin for svaret, det er fint at der kommer en 3g mast på Skovhulevej, men det hjælper dsv. nok ikke på Selandersvej.",
+        "from": {
+          "name": "Steen Østergaard",
+          "id": "1050120520"
+        },
+        "comments": {
+          "data": [
+            {
+              "id": "122386617773431_485662991445790_105874134",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Hej igen Steen\n\nDet er rigtigt, men i dit indlæg i går, skrev du kun gadenavnet Himmelbovej, hvor denne nye mast vil hjælpe.\n\nMen nu har du jo skrevet en ny adresse, og her er hjælpen også på vej. Vi har nemlig planlagt en mast med 4G på Elrovej, ca. 300 meter fra din adresse. \n\nSå du skulle gerne have bedre dækning indenfor 6 måneder.\n\nHilsen Martin  ",
+              "created_time": "2012-08-03T08:45:36+0000"
+            }
+          ],
+          "count": 1
+        },
+        "id": "122386617773431_485662991445790",
+        "created_time": "2012-08-02T21:35:18+0000"
+      },
+      {
+        "message": "Jeg har fået et nyt modem som ikke kunne bruges,jeg tror de bare plukker noget tilfældigt ned fra hylden\n",
+        "from": {
+          "name": "Bjarne Christensen",
+          "id": "1601581486"
+        },
+        "comments": {
+          "data": [
+            {
+              "id": "122386617773431_485653651446724_105874091",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Hej Bjarne\n\nSkal ikke kunne sige, hvordan de gør det. \n\nHar du bestilt et nyt modem?\n\nHilsen Martin",
+              "created_time": "2012-08-03T08:16:14+0000"
+            },
+            {
+              "id": "122386617773431_485653651446724_105875244",
+              "from": {
+                "name": "Bjarne Christensen",
+                "id": "1601581486"
+              },
+              "message": "Lortet virker ikke.Hvis det ikke kommer til og virke inden to dage,siger jeg mit abbonement hos jer op.Nu gider jeg ikke og være til grin mere.",
+              "created_time": "2012-08-03T15:18:16+0000"
+            },
+            {
+              "id": "122386617773431_485653651446724_105878011",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Det kan jeg godt forstå Bjarne.\n\nJeg har svaret dig i den anden tråd, hvordan vi kan få løst problemet.\n\nHilsen Martin",
+              "created_time": "2012-08-04T08:55:18+0000"
+            }
+          ],
+          "count": 3
+        },
+        "id": "122386617773431_485653651446724",
+        "created_time": "2012-08-02T21:04:31+0000"
+      },
+      {
+        "message": "Jeg er utilfreds med mit abbonement,bredbåndstelefoni,det falder meget ofte ud og det sidste døgn har jeg ikke kunnet ringe ud og har heller ikke kunnet modtage opkald .Bredbåndstelefoni er noget bras.\n",
+        "from": {
+          "name": "Bjarne Christensen",
+          "id": "1601581486"
+        },
+        "comments": {
+          "data": [
+            {
+              "id": "122386617773431_485652728113483_105874085",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Hej Bjarne\n\nDet er jeg ked af, at du synes.\n\nHar du prøvet at køre vores guide igennem?\nhttp://go.tdc.dk/emkly\n\nDu skal være velkommen til, at sende en mail til facebook@tdc.dk med hvad du er utilfreds med omkring dit abonnement,  så vil jeg kigge på det. Husk din adresse.\n\nHilsen Martin",
+              "created_time": "2012-08-03T08:14:48+0000"
+            },
+            {
+              "id": "122386617773431_485652728113483_105875234",
+              "from": {
+                "name": "Bjarne Christensen",
+                "id": "1601581486"
+              },
+              "message": "Det har jeg prøvet flere gange men det hjælper ikke",
+              "created_time": "2012-08-03T15:15:48+0000"
+            },
+            {
+              "id": "122386617773431_485652728113483_105878004",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Det skal vi da have kigget på. \n\nHotline er her hele weekenden. Du kan se her, hvordan du kan kontakte de: http://kundeservice.tdc.dk/privat/element.php?dogtag=p_help_kon_ringop\n\nHvis du ikke vil ringe ind, så er du også velkommen til at sende din adresse til facebook@tdc.dk, så vender jeg tilbage til dig senest mandag.\n\nHilsen Martin ",
+              "created_time": "2012-08-04T08:52:22+0000"
+            }
+          ],
+          "count": 3
+        },
+        "id": "122386617773431_485652728113483",
+        "created_time": "2012-08-02T21:01:47+0000"
+      },
+      {
+        "message": "Jeg har forbindelse via you see kabel, hver nat bliver der slukket for det digitale signal nogle gang flere timer ??? Hver eneste dag er der udfald eller slet intet signal på kanal 9, fortæl mig ikke at det er mit kabel der ikke er ok. jeg kender flere i den,anden af byen der har samme problem, desuden er der også udfald på kanal 4. det kan da ikke passe at de nye signaler kom som bag på jer, jeg mener generelt at TDC leverer en dårlig vare også på mobil dækning.\n\n8920 NW Randers",
+        "from": {
+          "name": "Steen Østergaard",
+          "id": "1050120520"
+        },
+        "comments": {
+          "data": [
+            {
+              "id": "122386617773431_485629684782454_105874078",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Hej Steen\n\nJeg kan desværre ikke hjælpe med Yousee, da det er et andet firma end TDC. Men jeg er sikker på, at du kan få hjælp, på deres facebookside: http://www.facebook.com/youseedanmark\n\nHilsen Martin",
+              "created_time": "2012-08-03T08:07:41+0000"
+            }
+          ],
+          "count": 1
+        },
+        "id": "122386617773431_485629684782454",
+        "created_time": "2012-08-02T19:43:48+0000"
+      },
+      {
+        "message": "Koster det penge for mig at modtage sms'er i udlandet? :-)",
+        "from": {
+          "name": "Andreas Mølgaard",
+          "id": "1149559332"
+        },
+        "comments": {
+          "data": [
+            {
+              "id": "122386617773431_485589444786478_105874245",
+              "from": {
+                "name": "Andreas Mølgaard",
+                "id": "1149559332"
+              },
+              "message": "Mange tak for svaret!:-)\n\nAltså min mor har også TDC, så vi kan jo ringe gratis til hinanden gælder det også i udlandet?",
+              "created_time": "2012-08-03T09:47:14+0000"
+            },
+            {
+              "id": "122386617773431_485589444786478_105874540",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Det gør det desværre ikke, det er kun i Danmark.\n\nDet var så lidt Andreas.\n\nHilsen Martin",
+              "created_time": "2012-08-03T11:54:41+0000"
+            }
+          ],
+          "count": 4
+        },
+        "id": "122386617773431_485589444786478",
+        "created_time": "2012-08-02T17:26:21+0000"
+      },
+      {
+        "message": "Hvornår mon man kan få 3g dækning ved hjordkær (nær rødekro) for det er godt nok trist at man kun har edge altid indenfor og nogle gange ude",
+        "from": {
+          "name": "Jan Knudsen",
+          "id": "665633699"
+        },
+        "comments": {
+          "data": [
+            {
+              "id": "122386617773431_485531721458917_105871229",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Hej Jan\n\nDet skal jeg ikke kunne sige.\n\nMen hvis du fortæller om din dækning her, så vil du blive kontaktet omkring det: http://daekning.tdc.dk/driftsinfo_NetGTT.html\n\nHilsen Martin",
+              "created_time": "2012-08-02T15:09:00+0000"
+            },
+            {
+              "id": "122386617773431_485531721458917_105871394",
+              "from": {
+                "name": "Jan Knudsen",
+                "id": "665633699"
+              },
+              "message": "Hej Martin Tak for svar, har været inde på jeres dæknings korrt og kan se indendørs ved mig, kan man kun komme op på 0,2 mbit= ingen 3g",
+              "created_time": "2012-08-02T15:57:25+0000"
+            }
+          ],
+          "count": 2
+        },
+        "id": "122386617773431_485531721458917",
+        "created_time": "2012-08-02T14:49:08+0000"
+      },
+      {
+        "message": "Pssst! Eksklusivt ’sneak preview’ på vores nye reklamefilm med Casper Christensen. Hvad synes du om den?\n\nSe mere om hvordan Casper bruger sit TDC her: http://go.tdc.dk/casper",
+        "from": {
+          "name": "TDC",
+          "id": "122386617773431"
+        },
+        "comments": {
+          "count": 54
+        },
+        "id": "122386617773431_485461428132613",
+        "created_time": "2012-08-02T10:43:31+0000"
+      },
+      {
+        "message": "Nu er jeg sgi da blevet en muggen jyde.. !!\nJeg har nu talt med tre froskellige \"kunderådgivere\" den første siger hun han hæve min net hastighed fra 20/2 mb til 30/5 mb uden beregning !!!\nDa der to dage senere ikke er sket noget ringer jeg for lige at høre hvordan det går, får så at vide der ikke er tasten en ordre på der da det ikke kan lade sig gøre, men at jeg kan købe en 50/5 mb for 100,- pr. md... (beder om at blive ringet op af hende der tidligere tilbød mig de 30/5 mb (det er ikke sket endnu efter  dage)\nRinger så i dag og får nu at vide at, det med den 50/5 mb heller ikke kan lade sig gøre da jeg har home trio.. !!! \nJeg spørge så hvad der skal til for at jeg kan få de 50/5 mb hvor efter at jeg overhovedet ikke kan få højere hastighed, selv om min linie godt kan bære en 70mb som kunderådgiveren siger...!!!\nNu vil jeg her gerne vide hvad der er op og ned i det her ..for jeg er sgu ikke helt tilfreds med jeres håndtering af ovenstående... !!!",
+        "from": {
+          "name": "Simon Møller Jakobsen",
+          "id": "1411551066"
+        },
+        "comments": {
+          "data": [
+            {
+              "id": "122386617773431_485459851466104_105870743",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Hej Simon\n\nDet kan jeg godt forstå. \n\nFørst og fremmest, så har vi ikke en hastighed der hedder 30/5, så den kan jeg lukke med det samme. \n\nHvis man har bredbånd men ikke TV, så kan man få ekstra hastighed på op til 50 mbit. hvor forbindelsen kan klare det. Det koster 100 kr. i måneden. Du kan læse mere om det her: http://privat.tdc.dk/element.php?dogtag=p_shop_bb_skift\n\nHvis man har HomeTrio, så er den højeste hastighed 20 mbit. grundet TV kræver meget høj kvalitet af forbindelsen. Vi er ved at undersøge muligheder, for højere hastighed på HomeTrio.\n\nHåber det giver mening Simon.\n\nHilsen Martin",
+              "created_time": "2012-08-02T12:58:56+0000"
+            },
+            {
+              "id": "122386617773431_485459851466104_105876117",
+              "from": {
+                "name": "Bjarne Christensen",
+                "id": "1601581486"
+              },
+              "message": "Den ene ved sku ikke hvad den anden laver.Jeg tror de lige er kommet ud af skolen",
+              "created_time": "2012-08-03T20:06:37+0000"
+            }
+          ],
+          "count": 2
+        },
+        "id": "122386617773431_485459851466104",
+        "created_time": "2012-08-02T10:30:38+0000"
+      },
+      {
+        "message": "Er der forstyrelser omkring Aabenraa??? Da jeg tændte for tv`et + boks så sker der intet. har prøvet flere gange og tænde og slukke men hjælper intet.",
+        "from": {
+          "name": "Peter Alsted",
+          "id": "1239016228"
+        },
+        "comments": {
+          "data": [
+            {
+              "id": "122386617773431_485448468133909_105870275",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Hej Peter\n\nNej det skulle der ikke være.\n\nKan jeg få dig til at prøve denne guide: http://guide.tdc.dk/tdc-care/guideManager.do?guide=hotline_tv_kundevendt_tv_online.net\n\nHåber det løser problemet, ellers hører jeg gerne fra dig igen.\n\nHilsen Martin",
+              "created_time": "2012-08-02T09:31:14+0000"
+            },
+            {
+              "id": "122386617773431_485448468133909_105870288",
+              "from": {
+                "name": "Peter Alsted",
+                "id": "1239016228"
+              },
+              "message": "Desværre, har prøvet begge løsninger indenfor tv og det virker ikke. Jeg kan dog se at boxen har forbindelse.",
+              "created_time": "2012-08-02T09:39:47+0000"
+            },
+            {
+              "id": "122386617773431_485448468133909_105870325",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Vil du ikke sende din adresse i en mail til facebook@tdc.dk, så kigger jeg på det.\n\nHilsen Martin",
+              "created_time": "2012-08-02T10:01:01+0000"
+            }
+          ],
+          "count": 3
+        },
+        "id": "122386617773431_485448468133909",
+        "created_time": "2012-08-02T09:24:18+0000"
+      },
+      {
+        "from": {
+          "name": "TDC",
+          "id": "122386617773431"
+        },
+        "comments": {
+          "count": 0
+        },
+        "id": "122386617773431_485416394803783",
+        "created_time": "2012-08-02T06:47:54+0000"
+      },
+      {
+        "message": "Godaften, \r\nJeg vil blot lige gøre opmærksom på at jeg idag har modtaget en mail, der angiveligt skulle være fra jer om at I mangler mine korekte personoplysninger. Da jeg ikke er kunde hos jer, tænker jeg, det må være spam og at I måske bør advare jeres kunder om denne fupmail!? :o)\r\nMed venlig hilsen \r\nMaria Viki Nielsen.",
+        "from": {
+          "name": "Maria Viki Nielsen",
+          "id": "568902232"
+        },
+        "comments": {
+          "data": [
+            {
+              "id": "122386617773431_485273324818090_105869881",
+              "from": {
+                "name": "TDC",
+                "category": "Company",
+                "id": "122386617773431"
+              },
+              "message": "Hej Maria\n\nTak for oplysningen. \n\nDet er desværre en kendt sag, som vi arbejder på, at få til at forsvinde. Men kan love dig for, at vi har prøvet at informere alle vores kunde på bedst mulig måde :-)\n\nMen igen tak for heads up.\n\nHilsen Martin",
+              "created_time": "2012-08-02T07:05:55+0000"
+            }
+          ],
+          "count": 1
+        },
+        "id": "122386617773431_485273324818090",
+        "created_time": "2012-08-01T22:47:57+0000"
+      }
+    ],
+    "paging": {
+      "previous": "https://graph.facebook.com/122386617773431/feed?fields=message,from.fields%28name%29,comments&since=1343943318&limit=1000&access_token=AAACEdEose0cBACFj0XxL6SFhonQP5LUlvZBqa9Xt2kcJ687EhtPKbRMGNuOhoXR0PnROUkmga7mZCInddyDfxu07ES8WKswTr3zRH8BQZDZD&__previous=1",
+      "next": "https://graph.facebook.com/122386617773431/feed?fields=message,from.fields%28name%29,comments&limit=1000&access_token=AAACEdEose0cBACFj0XxL6SFhonQP5LUlvZBqa9Xt2kcJ687EhtPKbRMGNuOhoXR0PnROUkmga7mZCInddyDfxu07ES8WKswTr3zRH8BQZDZD&until=1343861276"
+    }
+  }
+}
