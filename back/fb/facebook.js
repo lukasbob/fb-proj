@@ -1,6 +1,6 @@
 var https = require("https");
 var fs = require('fs');
-var fbauth = require("./fbauth");
+var auth = require("./auth");
 
 function pad(number) { return (number < 10 ? '0' : '') + number; }
 function unixTs(date) { return Math.round(date.getTime() / 1000); }
@@ -55,4 +55,5 @@ function makeRequest(token) {
 		});
 	});
 }
-fbauth.obtainToken(makeRequest);
+
+auth.obtainToken(makeRequest);

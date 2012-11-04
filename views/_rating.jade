@@ -1,0 +1,17 @@
+form(action="/post/#{post.id}", method="post", class="toneForm")
+	ol
+		li
+			input(type="radio", id="one_#{post.id}", value="1", name="tone")
+			label(for="one_#{post.id}") Meget negativ
+		li
+			input(type="radio", id="two_#{post.id}", value="2", name="tone")
+			label(for="two_#{post.id}") Negativ
+		li
+			input(type="radio", id="three_#{post.id}", value="3", name="tone")
+			label(for="three_#{post.id}") Neutral
+		li
+			input(type="radio", id="four_#{post.id}", value="4", name="tone")
+			label(for="four_#{post.id}") Positiv
+		li
+			input(type="radio", id="five_#{post.id}", value="5", name="tone")
+			label(for="five_#{post.id}") Meget positiv

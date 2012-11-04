@@ -1,2 +1,4 @@
 config.json
 *.sublime-*
+node_modules/*
+

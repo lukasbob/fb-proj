@@ -1,0 +1,8 @@
+- if (post.comments.data)
+		p
+			strong #{post.comments.count} comments
+		ol
+			- each comment in post.comments.data
+				li.comment(id= comment.id)
+					p.cMessage!= nlFilter(comment.message)
+					cite.cAuthor= comment.from.name
