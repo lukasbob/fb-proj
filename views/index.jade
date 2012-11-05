@@ -2,10 +2,11 @@ extends layout
 
 block content
 	h1= title
-	- each post in posts
-		article.post(id= post.id)
-			p.date= date(post.created_time)
-			p.pMessage!= nlFilter(post.message)
-			cite.pAuthor= post.from.name
-			include _rating
-			include _comments
+	section.content
+		- each post in posts
+			article.post(id= post.id)
+				p.date= date(post.created_time)
+				p.pMessage!= nlFilter(post.message)
+				cite.pAuthor= post.from.name
+				include _rating
+				include _comments

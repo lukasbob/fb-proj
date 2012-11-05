@@ -1,10 +1,48 @@
 body {
-	font: 17px/1.4 "Gill Sans";
+  font: 17px/1.4 "Helvetica";
+  background: #333333;
 }
-article.post {
-	margin: 0 auto;
-	width: 500px;
+.content {
+  width: 50%;
 }
 .post {
-	border-bottom: 1px solid #efefef;
+  margin: 0 0 10px 10px;
+  min-height: 200px;
+  position: relative;
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid #efefef;
+}
+h1 {
+  font-family: Georgia;
+  color: #dddddd;
+  text-align: center;
+}
+.comment {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+}
+.comment[data-from=id_224393774239629] {
+  background: #e8ecee;
+}
+.comment.boo {
+  background: #ffa;
+  padding-top: 15px;
+  position: relative;
+}
+.comment.boo::before {
+  content: "Telenors svar";
+  position: absolute;
+  right: 5px;
+  top: 2px;
+}
+.toneForm {
+  color: #dddddd;
+  position: absolute;
+  right: -220px;
+  top: 20px;
+}
+.toneForm label {
+  padding: 0 5px;
 }

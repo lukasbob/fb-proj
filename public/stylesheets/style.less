@@ -1,0 +1,52 @@
+@bodybg: #333;
+@lighttext: #ddd;
+
+body {
+	font: 17px/1.4 "Helvetica";
+	background: @bodybg;
+}
+.content {
+	width: 50%;
+}
+.post {
+	margin: 0 0 10px 10px;
+	min-height: 200px;
+	position: relative;
+	padding: 10px;
+	background: #fff;
+	border-bottom: 1px solid #efefef;
+}
+h1 {
+	font-family: Georgia;
+	color: @lighttext;
+	text-align: center;
+}
+.comment {
+	padding: 5px;
+	border-bottom: 1px solid #ddd;
+	overflow: hidden;
+	&[data-from=id_224393774239629] {
+		background: #e8ecee;
+	}
+	&.boo {
+		background: #ffa;
+		padding-top: 15px;
+		position: relative;
+	}
+	&.boo::before {
+		content: "Telenors svar";
+		position: absolute;
+		right: 5px;
+		top: 2px;
+	}
+}
+
+.toneForm {
+	color: @lighttext;
+	position: absolute;
+	right: -220px;
+	top: 20px;
+	label {
+		padding: 0 5px;
+	}
+}

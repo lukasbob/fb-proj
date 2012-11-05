@@ -1,4 +1,6 @@
 // Load data from one of the data files.
+
+var _ = require("underscore");
 var data = require("./data/telenor_20120802-20120803").feed.data;
 
 var postCounter = 1;
@@ -8,6 +10,10 @@ PostProvider.prototype.dummyData = [];
 
 PostProvider.prototype.findAll = function (fn) {
 	fn(null, this.dummyData);
+};
+PostProvider.prototype.findById = function(id, fn) {
+	var post = _.find(this.dummyData, function(post) { return post.id === id; });
+	fn(post);
 };
 
 PostProvider.prototype.save = function (posts, fn) {

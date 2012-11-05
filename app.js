@@ -18,6 +18,7 @@ app.configure(function () {
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);
+	app.use(require('less-middleware')({ src: __dirname + '/public' }));
 	app.use(express.static(path.join(__dirname, 'public')));
 });
 
@@ -41,9 +42,10 @@ app.locals.date = function(txt) {
 /**
  * Routes
  */
-console.log(routes);
 app.get('/', routes.index);
 app.post('/comment/:cid', routes.comment);
+app.get('/posts/:pid', routes.posts);
+app.post('/post/:pid', routes.updatePost);
 /**
  * Setup server
  */
