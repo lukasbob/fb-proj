@@ -4,15 +4,21 @@ var PostProvider = require("./../back/persistence/PostProvider").PostProvider;
  * GET home page.
  */
 
-var postProvider = new PostProvider("localhost", 27017);
 var limit = 1;
-exports.index = function (req, res) {
+var postProvider = new PostProvider("173.203.105.5", 27017);
+
+exports.index = function(req, res) {
+	res.render("index");
+};
+
+exports.list = function (req, res) {
 	var page = parseInt((req.params.page || 0), 10);
 	var skip = page * limit;
-	postProvider.findAll(limit, skip, function (error, posts, count) {
+	postProvider.findAll(req.params.name, limit, skip, function (error, posts, count) {
 		res.render('index', {
-			title: 'Telenor (side ' + page + ')',
+			title: req.params.name + ' (side ' + (page+1) + ')',
 			posts: posts,
+			base: "/c/" + req.params.name,
 			limit: limit,
 			skip: skip,
 			total: count,
@@ -28,7 +34,7 @@ exports.comment = function(req, res) {
 	var commentId = req.params.cid;
 	var preferred = req.param("preferred") === "true";
 	var postId = commentId.split("_").slice(0, 2).join("_");
-	postProvider.togglePreferredComment(commentId, preferred, function(err, post) {
+	postProvider.togglePreferredComment(req.params.name, commentId, preferred, function(err, post) {
 		res.send(post);
 	});
 };
@@ -40,7 +46,7 @@ exports.updatePost = function(req, res) {
 	var postId = req.params.pid;
 	var cat = req.param("category");
 	var tone = req.param("tone");
-	postProvider.setCategoryAndRating(req.params.pid, cat, tone, function(err, post){
+	postProvider.setCategoryAndRating(req.params.name, req.params.pid, cat, tone, function(err, post){
 		res.send(200);
 	});
 };
@@ -49,7 +55,7 @@ exports.updatePost = function(req, res) {
  * GET post
  */
 exports.posts = function (req, res) {
-	postProvider.findById(req.params.pid, function(err, post){
+	postProvider.findById(req.params.name, req.params.pid, function(err, post){
 		res.send(post);
 	});
 };

@@ -42,10 +42,11 @@ app.locals.date = function(txt) {
 /**
  * Routes
  */
-app.get('/:page?', routes.index);
-app.post('/comment/:cid', routes.comment);
-app.get('/posts/:pid', routes.posts);
-app.post('/post/:pid', routes.updatePost);
+app.get("/", routes.index);
+app.get('/c/:name/:page?', routes.list);
+app.post('/c/:name/comment/:cid', routes.comment);
+app.get('/c/:name/posts/:pid', routes.posts);
+app.post('/c/:name/post/:pid', routes.updatePost);
 /**
  * Setup server
  */

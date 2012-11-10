@@ -5,16 +5,16 @@ var BSON = require('mongodb').BSON;
 var ObjectID = require('mongodb').ObjectID;
 
 var PostProvider = function (host, port) {
-		this.db = new Db("fbproj", new Server(host, port, {
-			auto_reconnect: true
-		}, {}), {
-			safe: true
-		});
-		this.db.open(function () {});
-	};
+	this.db = new Db("fbproj", new Server(host, port, {
+		auto_reconnect: true
+	}, {}), {
+		safe: true
+	});
+	this.db.open(function () {});
+};
 
-PostProvider.prototype.getCollection = function (fn) {
-	this.db.collection("telenor", function (err, coll) {
+PostProvider.prototype.getCollection = function (name, fn) {
+	this.db.collection(name, function (err, coll) {
 		if (err) {
 			fn(err);
 		} else {
@@ -23,31 +23,29 @@ PostProvider.prototype.getCollection = function (fn) {
 	});
 };
 
-PostProvider.prototype.findAll = function (limit, skip, fn) {
-	this.getCollection(function (err, coll) {
+PostProvider.prototype.findAll = function (name, limit, skip, fn) {
+	this.getCollection(name, function (err, coll) {
 		if (err) { fn(err); }
 		else {
 			var options = {
 				"limit": limit ? limit : 10,
 				"skip": skip ? skip : 0
 			};
-			var totalPosts = 0;
 			var cursor = coll.find({}, options);
-			cursor.count(function(err, count){ totalPosts = count; });
-
-			cursor.sort({ "created_time": 1 })
-				.toArray(function (err, res) {
-					if (err) { fn(err); }
-					else {
-						fn(null, res, totalPosts);
-					}
-				});
+			cursor.count(function(err, totalPosts){
+				cursor.sort({ "created_time": 1 }).toArray(function (err, res) {
+						if (err) { fn(err); }
+						else {
+							fn(null, res, totalPosts);
+						}
+					});
+			});
 		}
 	});
 };
 
-PostProvider.prototype.updateComments = function (id, comments, fn) {
-	this.getCollection(function (err, coll) {
+PostProvider.prototype.updateComments = function (name, id, comments, fn) {
+	this.getCollection(name, function (err, coll) {
 		if (err) {
 			fn(err);
 		} else {
@@ -62,8 +60,8 @@ PostProvider.prototype.updateComments = function (id, comments, fn) {
 	});
 };
 
-PostProvider.prototype.setCategoryAndRating = function (id, category, rating, fn) {
-	this.getCollection(function (err, coll) {
+PostProvider.prototype.setCategoryAndRating = function (name, id, category, rating, fn) {
+	this.getCollection(name, function (err, coll) {
 		if (err) {
 			fn(err);
 		} else {
@@ -79,15 +77,14 @@ PostProvider.prototype.setCategoryAndRating = function (id, category, rating, fn
 	});
 };
 
-PostProvider.prototype.togglePreferredComment = function (id, isPreferred, fn) {
+PostProvider.prototype.togglePreferredComment = function (name, id, isPreferred, fn) {
 	var that = this;
 	var postId = id.split("_").slice(0, 2).join("_");
-	console.log(isPreferred);
-	this.getCollection(function (err, coll) {
+	this.getCollection(name, function (err, coll) {
 		if (err) {
 			fn(err);
 		} else {
-			that.findById(postId, function (err, post) {
+			that.findById(name, postId, function (err, post) {
 				var comments = post.comments.data.map(function (c, i) {
 					if (c.id === id) {
 						c.preferred = isPreferred;
@@ -107,8 +104,8 @@ PostProvider.prototype.togglePreferredComment = function (id, isPreferred, fn) {
 	});
 };
 
-PostProvider.prototype.findById = function (id, fn) {
-	this.getCollection(function (err, coll) {
+PostProvider.prototype.findById = function (name, id, fn) {
+	this.getCollection(name, function (err, coll) {
 		if (err) {
 			fn(err);
 		} else {
@@ -119,8 +116,8 @@ PostProvider.prototype.findById = function (id, fn) {
 	});
 };
 
-PostProvider.prototype.save = function (posts, fn) {
-	this.getCollection(function (err, coll) {
+PostProvider.prototype.save = function (name, posts, fn) {
+	this.getCollection(name, function (err, coll) {
 		coll.insert(posts, function (err, result) {
 			if (err) {
 				console.error("insertion error: " + err);

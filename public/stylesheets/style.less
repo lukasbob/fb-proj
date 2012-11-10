@@ -36,7 +36,8 @@ h1 {
 	padding: 30px 15px 15px;
 	border-bottom: 1px solid #ddd;
 	overflow: hidden;
-	&[data-from=id_224393774239629] { // Comments by Telenor
+	&[data-from=id_224393774239629],
+	&[data-from=id_122386617773431] { // Comments by Telenor or TDC
 		background: #e8ecee;
 	}
 	&.preferred {
@@ -45,7 +46,7 @@ h1 {
 		position: relative;
 	}
 	&.preferred::before {
-		content: "Telenors svar";
+
 		position: absolute;
 		right: 5px;
 		top: 5px;
@@ -55,6 +56,8 @@ h1 {
 		padding: 2px 5px;
 		border-radius: 3px;
 	}
+	&.preferred[data-from=id_224393774239629] { content: "Telenors svar"; }
+	&.preferred[data-from=id_122386617773431] { content: "TDCs svar"; }
 }
 
 .toneForm {

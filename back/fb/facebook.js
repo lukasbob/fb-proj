@@ -3,7 +3,7 @@ var fs = require('fs');
 var auth = require("./auth");
 var PostProvider = require("../persistence/PostProvider").PostProvider;
 
-var postProvider = new PostProvider("localhost", 27017);
+var postProvider = new PostProvider("173.203.105.5", 27017, "tdc");
 
 function pad(number) { return (number < 10 ? '0' : '') + number; }
 function unixTs(date) { return Math.round(date.getTime() / 1000); }
@@ -30,20 +30,19 @@ function getComment(token, id) {
 	});
 }
 
-
 function makeRequest(token) {
 
 	var startdate = new Date(2012, 9, 1, 0, 0, 0, 0);
 	var enddate = new Date(2012, 9, 31, 0, 0, 0, 0);
 	//enddate.setDate(startdate.getDate() + 30);
 
-	var pages = [{
+	var pages = [/*{
 		name: "telenor",
 		id: 224393774239629
-	}/*, {
+	}*/{
 		name: "tdc",
 		id: 122386617773431
-	}*/];
+	}];
 
 	var query = "feed.fields(message,from.name,comments)" + ".since(" + unixTs(startdate) + ")" + ".until(" + unixTs(enddate) + ")" + ".limit(1000)";
 

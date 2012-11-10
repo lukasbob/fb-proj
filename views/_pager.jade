@@ -1,7 +1,7 @@
 nav.pg
 	ul
 		li
-			a.prev(href="#{page < 1 ? '#' : page - 1}") previous
+			a.prev(href="#{base}/#{page < 1 ? '#' : page - 1}") previous
 		li
-			a.next(href="#{(page + 1) * limit > total ? '#' : page + 1}") next
+			a.next(href="#{base}/#{(page + 1) * limit > total ? '#' : page + 1}") next
 	p.position #{skip + 1} to #{skip + limit > total ? total : skip + limit} of #{total} posts

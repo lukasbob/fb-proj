@@ -162,7 +162,8 @@ h1 {
   border-bottom: 1px solid #ddd;
   overflow: hidden;
 }
-.comment[data-from=id_224393774239629] {
+.comment[data-from=id_224393774239629],
+.comment[data-from=id_122386617773431] {
   background: #e8ecee;
 }
 .comment.preferred {
@@ -171,7 +172,6 @@ h1 {
   position: relative;
 }
 .comment.preferred::before {
-  content: "Telenors svar";
   position: absolute;
   right: 5px;
   top: 5px;
@@ -180,6 +180,12 @@ h1 {
   color: #555;
   padding: 2px 5px;
   border-radius: 3px;
+}
+.comment.preferred[data-from=id_224393774239629] {
+  content: "Telenors svar";
+}
+.comment.preferred[data-from=id_122386617773431] {
+  content: "TDCs svar";
 }
 .toneForm {
   color: #dddddd;

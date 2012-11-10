@@ -9,7 +9,7 @@ var commentClick = function (e) {
 	} else {
 		$(this).addClass(preferredClass);
 	}
-	$.post("/comment/" + this.id, { "preferred": !isPreferred }, function(res){
+	$.post(base + "/comment/" + this.id, { "preferred": !isPreferred }, function(res){
 		console.log(res);
 	});
 };
