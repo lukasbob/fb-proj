@@ -1,15 +1,16 @@
 var https = require("https");
 var fs = require('fs');
 var auth = require("./auth");
+var config = require("./../../config");
 var PostProvider = require("../persistence/PostProvider").PostProvider;
 
-var postProvider = new PostProvider("173.203.105.5", 27017, "tdc");
+var postProvider = new PostProvider(config.mongo.host, config.mongo.port, "tdc");
 
 function pad(number) { return (number < 10 ? '0' : '') + number; }
 function unixTs(date) { return Math.round(date.getTime() / 1000); }
 function fileTs(date) { return [date.getFullYear(), pad(date.getMonth() + 1), pad(date.getDate())].join(""); }
 
-function getComment(token, id) {
+function getComment(name, token, id) {
 	var options = {
 		host: "graph.facebook.com",
 		path: "/" + id + "/comments?access_token=" + token,
@@ -23,7 +24,7 @@ function getComment(token, id) {
 
 		resp.on("end", function(){
 			var comments = JSON.parse(response);
-			postProvider.updateComments(id, comments.data, function(){
+			postProvider.updateComments(name, id, comments.data, function(){
 				console.log("Updated comments for " + id);
 			});
 		});
@@ -80,13 +81,13 @@ function makeRequest(token) {
 				console.log("Needs comments update: " + commentUpdatesNeeded.length);
 
 				commentUpdatesNeeded.forEach(function (id, i) {
-					getComment(token, id);
+					getComment(page.name, token, id);
 					if (i === commentUpdatesNeeded.length - 1) {
 						console.log("done updating comments.");
 					}
 				});
 
-				postProvider.save(output.feed.data, function(err, res){
+				postProvider.save(page.name, output.feed.data, function(err, res){
 					console.log(res.length);
 					postProvider.db.close();
 					console.log("Done!");

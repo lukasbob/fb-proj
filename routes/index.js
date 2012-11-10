@@ -1,3 +1,4 @@
+var config = require("./../config");
 var PostProvider = require("./../back/persistence/PostProvider").PostProvider;
 
 /*
@@ -5,7 +6,7 @@ var PostProvider = require("./../back/persistence/PostProvider").PostProvider;
  */
 
 var limit = 1;
-var postProvider = new PostProvider("173.203.105.5", 27017);
+var postProvider = new PostProvider(config.mongo.host, config.mongo.port);
 
 exports.index = function(req, res) {
 	res.render("index", {

@@ -1,21 +1,21 @@
 var https = require("https");
 var fs = require('fs');
-var config = require("./config");
+var config = require("./../../config");
 
 /**
  * Logs into facebook as the app with the credentials provided in config.
  * @param  {Function} fn Callback function. the Facebook access_token is passed.
  */
 exports.obtainToken = function(fn) {
-	if (!config || !config.login || !config.secret) {
+	if (!config || !config.fb || !config.fb.login || !config.fb.secret) {
 		console.log("Missing config file containing Facebook credentials.");
 		return;
 	}
 
-	console.log("Obtaining access token from Facebook using app ID " + config.login);
+	console.log("Obtaining access token from Facebook using app ID " + config.fb.login);
 	var req = {
 		host: "graph.facebook.com",
-		path: "/oauth/access_token?client_id=" + config.login + "&client_secret=" + config.secret + "&grant_type=client_credentials",
+		path: "/oauth/access_token?client_id=" + config.fb.login + "&client_secret=" + config.fb.secret + "&grant_type=client_credentials",
 		port: 443
 	};
 
