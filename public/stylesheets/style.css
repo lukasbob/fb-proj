@@ -1,15 +1,154 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+}
 body {
   font: 17px/1.4 "Helvetica";
   background: #333333;
+  color: #555555;
+}
+cite {
+  color: #888888;
+  font-size: 13px;
+  font-style: italic;
 }
 .content {
+  margin-top: 44px;
   width: 50%;
 }
 .post {
   margin: 0 0 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 20px;
   min-height: 200px;
   position: relative;
-  padding: 10px;
+  padding: 30px 10px;
   background: #fff;
   border-bottom: 1px solid #efefef;
 }
@@ -19,30 +158,102 @@ h1 {
   text-align: center;
 }
 .comment {
-  padding: 5px;
+  padding: 30px 15px 15px;
   border-bottom: 1px solid #ddd;
   overflow: hidden;
 }
 .comment[data-from=id_224393774239629] {
   background: #e8ecee;
 }
-.comment.boo {
+.comment.preferred {
   background: #ffa;
-  padding-top: 15px;
+  padding-top: 30px;
   position: relative;
 }
-.comment.boo::before {
+.comment.preferred::before {
   content: "Telenors svar";
   position: absolute;
   right: 5px;
-  top: 2px;
+  top: 5px;
+  background: #bbb;
+  font-size: 12px;
+  color: #555;
+  padding: 2px 5px;
+  border-radius: 3px;
 }
 .toneForm {
   color: #dddddd;
-  position: absolute;
-  right: -220px;
-  top: 20px;
+  position: fixed;
+  left: 50%;
+  width: 50%;
+  top: 44px;
+  padding: 30px 50px;
+}
+.toneForm.saved {
+  background: #225d2c;
 }
 .toneForm label {
   padding: 0 5px;
+}
+.pg {
+  position: fixed;
+  top: 0;
+  width: 50%;
+  padding: 10px 100% 10px 0;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 20px;
+  z-index: 2;
+  background: #222;
+  overflow: auto;
+}
+.pg .position {
+  float: right;
+  margin-right: 10px;
+  color: #dddddd;
+}
+.pg ul {
+  float: right;
+}
+.pg li {
+  display: inline-block;
+}
+.pg a {
+  border-radius: 2px;
+  color: #555;
+  display: block;
+  text-indent: -999em;
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  background: #ddd;
+  position: relative;
+  border: 1px solid #bbb;
+  box-shadow: #bbb 0 2px 1px;
+}
+.pg a.prev {
+  margin: 0 3px 0 0;
+}
+.pg a:hover {
+  background: #55ceee;
+}
+.pg a:active {
+  box-shadow: none;
+  bottom: -2px;
+}
+.pg a::after {
+  text-indent: 0;
+  text-align: center;
+  line-height: 18px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 26px;
+}
+.pg .next::after {
+  content: "\203A";
+}
+.pg .prev::after {
+  content: "\2039";
 }

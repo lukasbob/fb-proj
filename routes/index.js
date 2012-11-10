@@ -5,12 +5,18 @@ var PostProvider = require("./../back/persistence/PostProvider").PostProvider;
  */
 
 var postProvider = new PostProvider("localhost", 27017);
-
+var limit = 1;
 exports.index = function (req, res) {
-	postProvider.findAll(function (error, posts) {
+	var page = parseInt((req.params.page || 0), 10);
+	var skip = page * limit;
+	postProvider.findAll(limit, skip, function (error, posts, count) {
 		res.render('index', {
-			title: 'All posts',
-			posts: posts
+			title: 'Telenor (side ' + page + ')',
+			posts: posts,
+			limit: limit,
+			skip: skip,
+			total: count,
+			page: page
 		});
 	});
 };
@@ -20,8 +26,9 @@ exports.index = function (req, res) {
  */
 exports.comment = function(req, res) {
 	var commentId = req.params.cid;
+	var preferred = req.param("preferred") === "true";
 	var postId = commentId.split("_").slice(0, 2).join("_");
-	postProvider.setPreferredComment(commentId, function(err, post) {
+	postProvider.togglePreferredComment(commentId, preferred, function(err, post) {
 		res.send(post);
 	});
 };
@@ -34,7 +41,7 @@ exports.updatePost = function(req, res) {
 	var cat = req.param("category");
 	var tone = req.param("tone");
 	postProvider.setCategoryAndRating(req.params.pid, cat, tone, function(err, post){
-		res.send(post);
+		res.send(200);
 	});
 };
 

@@ -1,8 +1,8 @@
 extends layout
 
 block content
-	h1= title
 	section.content
+		include _pager
 		- each post in posts
 			article.post(id= post.id)
 				p.date= date(post.created_time)
@@ -10,3 +10,4 @@ block content
 				cite.pAuthor= post.from.name
 				include _rating
 				include _comments
+

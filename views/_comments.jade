@@ -3,6 +3,6 @@
 			strong #{post.comments.count} comments
 		ol
 			- each comment in post.comments.data
-				li.comment(id = comment.id, class = (comment.preferred ? "boo" : ""), data-from = "id_" + comment.from.id)
+				li.comment(id = comment.id, class = (comment.preferred ? "preferred" : ""), data-from = "id_" + comment.from.id)
 					p.cMessage!= nlFilter(comment.message)
 					cite.cAuthor= comment.from.name

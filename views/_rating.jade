@@ -1,6 +1,10 @@
-form(action="/post/#{post.id}", method="post", class="toneForm")
+form(action="/post/#{post.id}", method="post", class="toneForm #{post.rating > 0 && post.category ? 'saved' : ''}")
 	label(for="category_#{post.id}") Kategori
-	input(type="text", id="category_#{post.id}", value="#{post.category ? post.category : ''}", name="category")
+	input(type="text", id="category_#{post.id}", value="#{post.category ? post.category : ''}", name="category", list="categories_#{post.id}", autofocus)
+	datalist(id="categories_#{post.id}")
+		option Support
+		option Opsigelse
+		option Snaps
 	ol
 		li
 			input(type="radio", id="one_#{post.id}", value="1", name="tone", checked=post.rating == 1)

@@ -1,18 +1,29 @@
+@import "reset";
+
 @bodybg: #333;
 @lighttext: #ddd;
+@textColor: #555;
 
 body {
 	font: 17px/1.4 "Helvetica";
 	background: @bodybg;
+	color: @textColor;
+}
+cite {
+	color: lighten(@textColor, 20%);
+	font-size: 13px;
+	font-style: italic;
 }
 .content {
+	margin-top: 44px;
 	width: 50%;
 }
 .post {
 	margin: 0 0 10px 10px;
+	box-shadow: rgba(0,0,0,.5) 0 0 20px;
 	min-height: 200px;
 	position: relative;
-	padding: 10px;
+	padding: 30px 10px;
 	background: #fff;
 	border-bottom: 1px solid #efefef;
 }
@@ -22,31 +33,106 @@ h1 {
 	text-align: center;
 }
 .comment {
-	padding: 5px;
+	padding: 30px 15px 15px;
 	border-bottom: 1px solid #ddd;
 	overflow: hidden;
-	&[data-from=id_224393774239629] {
+	&[data-from=id_224393774239629] { // Comments by Telenor
 		background: #e8ecee;
 	}
-	&.boo {
+	&.preferred {
 		background: #ffa;
-		padding-top: 15px;
+		padding-top: 30px;
 		position: relative;
 	}
-	&.boo::before {
+	&.preferred::before {
 		content: "Telenors svar";
 		position: absolute;
 		right: 5px;
-		top: 2px;
+		top: 5px;
+		background: #bbb;
+		font-size: 12px;
+		color: #555;
+		padding: 2px 5px;
+		border-radius: 3px;
 	}
 }
 
 .toneForm {
 	color: @lighttext;
-	position: absolute;
-	right: -220px;
-	top: 20px;
+	position: fixed;
+	left: 50%;
+	width: 50%;
+	top: 44px;
+	padding: 30px 50px;
+	&.submitting {
+
+	}
+	&.saved {
+		background: #225d2c
+	}
 	label {
 		padding: 0 5px;
 	}
 }
+
+.pg {
+	position: fixed;
+	top: 0;
+	width: 50%;
+	padding: 10px 100% 10px 0;
+	box-shadow: rgba(0,0,0,.5) 0 0 20px;
+	z-index: 2;
+	background: #222;
+	overflow: auto;
+	.position {
+		float: right;
+		margin-right: 10px;
+		color: @lighttext;
+	}
+	ul {
+		float: right;
+	}
+	li {
+		display: inline-block;
+	}
+	a {
+		border-radius: 2px;
+		color: #555;
+		display: block;
+		text-indent: -999em;
+		overflow: hidden;
+		width: 20px;
+		height: 20px;
+		background: #ddd;
+		position: relative;
+		border: 1px solid #bbb;
+		box-shadow: #bbb 0 2px 1px;
+		&.prev { margin: 0 3px 0 0; }
+		&:hover {
+			background: #55ceee;
+		}
+		&:active {
+			box-shadow: none;
+			bottom: -2px;
+		}
+		&::after {
+			text-indent: 0;
+			text-align: center;
+			line-height: 18px;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 20px;
+			font-size: 26px;
+		}
+	}
+	.next::after {
+		content: "\203A";
+	}
+	.prev::after {
+		content: "\2039";
+	}
+}
+
