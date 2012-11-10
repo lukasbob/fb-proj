@@ -8,14 +8,16 @@ var limit = 1;
 var postProvider = new PostProvider("173.203.105.5", 27017);
 
 exports.index = function(req, res) {
-	res.render("index");
+	res.render("index", {
+		title: "Vælg et firma"
+	});
 };
 
 exports.list = function (req, res) {
 	var page = parseInt((req.params.page || 0), 10);
 	var skip = page * limit;
 	postProvider.findAll(req.params.name, limit, skip, function (error, posts, count) {
-		res.render('index', {
+		res.render('list', {
 			title: req.params.name + ' (side ' + (page+1) + ')',
 			posts: posts,
 			base: "/c/" + req.params.name,

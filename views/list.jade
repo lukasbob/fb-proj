@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	section.content
+		include _pager
+		- each post in posts
+			article.post(id= post.id)
+				p.date= date(post.created_time)
+				p.pMessage!= nlFilter(post.message)
+				cite.pAuthor= post.from.name
+				include _rating
+				include _comments
+	script
+		var base = "#{base}";
+

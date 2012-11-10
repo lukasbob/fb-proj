@@ -1,15 +1,9 @@
 extends layout
 
 block content
-	section.content
-		include _pager
-		- each post in posts
-			article.post(id= post.id)
-				p.date= date(post.created_time)
-				p.pMessage!= nlFilter(post.message)
-				cite.pAuthor= post.from.name
-				include _rating
-				include _comments
-	script
-		var base = "#{base}";
-
+	h1 Vælg et firma:
+	ul.front
+		li.telenor
+			a(href="/c/telenor") Telenor
+		li.tdc
+			a(href="/c/tdc") TDC
