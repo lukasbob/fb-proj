@@ -2,9 +2,12 @@ form(action="#{base}/post/#{post.id}", method="post", class="toneForm #{post.rat
 	label(for="category_#{post.id}") Kategori
 	input(type="text", id="category_#{post.id}", value="#{post.category ? post.category : ''}", name="category", list="categories_#{post.id}", autofocus)
 	datalist(id="categories_#{post.id}")
+		option Salg
 		option Support
+		option Kundeservice
+		option Klage
 		option Opsigelse
-		option Snaps
+		option Ude af kontekst
 	ol
 		li
 			input(type="radio", id="one_#{post.id}", value="1", name="tone", checked=post.rating == 1)
