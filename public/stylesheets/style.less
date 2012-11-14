@@ -67,7 +67,6 @@ h1 {
 		position: relative;
 	}
 	&.preferred::before {
-
 		position: absolute;
 		right: 5px;
 		top: 5px;
@@ -77,8 +76,8 @@ h1 {
 		padding: 2px 5px;
 		border-radius: 3px;
 	}
-	&.preferred[data-from=id_224393774239629] { content: "Telenors svar"; }
-	&.preferred[data-from=id_122386617773431] { content: "TDCs svar"; }
+	&.preferred[data-from=id_224393774239629]::before { content: "Telenors svar"; }
+	&.preferred[data-from=id_122386617773431]::before { content: "TDCs svar"; }
 }
 
 .toneForm {
@@ -94,8 +93,26 @@ h1 {
 	&.saved {
 		background: #225d2c
 	}
-	label {
-		padding: 0 5px;
+	input[type="text"],
+	input[type="number"] {
+		width: 300px;
+		line-height: 22px;
+		border: 1px solid #bbb;
+		border-radius: 4px;
+		padding: 4px;
+	}
+	p,
+	fieldset {
+		margin: 0 0 15px;
+	}
+	p label,
+	legend {
+		display: block;
+		color: #8cbba7;
+		font-weight: bold;
+	}
+	fieldset label {
+		padding-left: 10px;
 	}
 }
 

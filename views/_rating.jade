@@ -1,28 +1,43 @@
 form(action="#{base}/post/#{post.id}", method="post", class="toneForm #{post.rating > 0 && post.category ? 'saved' : ''}")
-	label(for="category_#{post.id}") Kategori
-	input(type="text", id="category_#{post.id}", value="#{post.category ? post.category : ''}", name="category", list="categories_#{post.id}", autofocus)
-	datalist(id="categories_#{post.id}")
-		option Salg
-		option Support
-		option Kundeservice
-		option Klage
-		option Opsigelse
-		option Ude af kontekst
-	ol
-		li
-			input(type="radio", id="one_#{post.id}", value="1", name="tone", checked=post.rating == 1)
-			label(for="one_#{post.id}") Meget negativ
-		li
-			input(type="radio", id="two_#{post.id}", value="2", name="tone", checked=post.rating == 2)
-			label(for="two_#{post.id}") Negativ
-		li
-			input(type="radio", id="three_#{post.id}", value="3", name="tone", checked=post.rating == 3 || !post.rating)
-			label(for="three_#{post.id}") Neutral
-		li
-			input(type="radio", id="four_#{post.id}", value="4", name="tone", checked=post.rating == 4)
-			label(for="four_#{post.id}") Positiv
-		li
-			input(type="radio", id="five_#{post.id}", value="5", name="tone", checked=post.rating == 5)
-			label(for="five_#{post.id}") Meget positiv
+	p
+		label(for="category_#{post.id}") Kategori:
+		input(type="text", id="category_#{post.id}", value="#{post.category ? post.category : ''}", name="category", list="categories_#{post.id}", autofocus)
+		datalist(id="categories_#{post.id}")
+			option Salg
+			option Support
+			option Kundeservice
+			option Klage
+			option Opsigelse
+			option Ude af kontekst
+
+	fieldset
+		legend Tonen på kundens indlæg:
+		ol
+			li
+				input(type="radio", id="one_#{post.id}", value="1", name="tone", checked=post.rating == 1)
+				label(for="one_#{post.id}") Meget negativ
+			li
+				input(type="radio", id="two_#{post.id}", value="2", name="tone", checked=post.rating == 2)
+				label(for="two_#{post.id}") Negativ
+			li
+				input(type="radio", id="three_#{post.id}", value="3", name="tone", checked=post.rating == 3 || !post.rating)
+				label(for="three_#{post.id}") Neutral
+			li
+				input(type="radio", id="four_#{post.id}", value="4", name="tone", checked=post.rating == 4)
+				label(for="four_#{post.id}") Positiv
+			li
+				input(type="radio", id="five_#{post.id}", value="5", name="tone", checked=post.rating == 5)
+				label(for="five_#{post.id}") Meget positiv
+
+	p
+		label(for="category_#{post.id}") Tonen på firmaets respons:
+		input(type="text", id="company_#{post.id}", value="#{post.companyResponse ? post.companyResponse : ''}", name="companyResponse", list="tone_#{post.id}")
+		datalist(id="tone_#{post.id}")
+			option Empatisk
+			option Nedladende
+
+	p
+		label(for="replyCount_#{post.id}") Antal svar indtil løsning
+		input(type="number", id="replyCount_#{post.id}", min="0", value="#{post.replyCount ? post.replyCount : 0}", name="replyCount"")
 
 	button(type="submit", class="ranking") Go

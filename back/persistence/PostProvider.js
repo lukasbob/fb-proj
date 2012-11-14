@@ -60,7 +60,7 @@ PostProvider.prototype.updateComments = function (name, id, comments, fn) {
 	});
 };
 
-PostProvider.prototype.setCategoryAndRating = function (name, id, category, rating, fn) {
+PostProvider.prototype.setCategoryAndRating = function (name, id, category, rating, replyCount, companyResponse, fn) {
 	this.getCollection(name, function (err, coll) {
 		if (err) {
 			fn(err);
@@ -70,7 +70,9 @@ PostProvider.prototype.setCategoryAndRating = function (name, id, category, rati
 			}, {
 				$set: {
 					category: category,
-					rating: rating
+					rating: rating,
+					companyResponse: companyResponse,
+					replyCount: replyCount
 				}
 			}, fn);
 		}

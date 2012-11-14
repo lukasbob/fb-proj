@@ -18,6 +18,7 @@ exports.list = function (req, res) {
 	var page = parseInt((req.params.page || 0), 10);
 	var skip = page * limit;
 	postProvider.findAll(req.params.name, limit, skip, function (error, posts, count) {
+		console.log(posts);
 		res.render('list', {
 			title: req.params.name + ' (side ' + (page+1) + ')',
 			posts: posts,
@@ -49,7 +50,9 @@ exports.updatePost = function(req, res) {
 	var postId = req.params.pid;
 	var cat = req.param("category");
 	var tone = req.param("tone");
-	postProvider.setCategoryAndRating(req.params.name, req.params.pid, cat, tone, function(err, post){
+	var replyCount = req.param("replyCount");
+	var companyResponse = req.param("companyResponse");
+	postProvider.setCategoryAndRating(req.params.name, req.params.pid, cat, tone, replyCount, companyResponse, function(err, post){
 		res.send(200);
 	});
 };
