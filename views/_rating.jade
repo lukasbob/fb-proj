@@ -1,4 +1,4 @@
-form(action="#{base}/post/#{post.id}", method="post", class="toneForm #{post.rating > 0 && post.category ? 'saved' : ''}")
+form(action="#{base}/post/#{post.id}", method="post", class="toneForm #{post.saved ? 'saved' : ''}")
 	p
 		label(for="category_#{post.id}") Kategori:
 		input(type="text", id="category_#{post.id}", value="#{post.category ? post.category : ''}", name="category", list="categories_#{post.id}", autofocus)
@@ -38,6 +38,19 @@ form(action="#{base}/post/#{post.id}", method="post", class="toneForm #{post.rat
 
 	p
 		label(for="replyCount_#{post.id}") Antal svar indtil løsning
-		input(type="number", id="replyCount_#{post.id}", min="0", value="#{post.replyCount ? post.replyCount : 0}", name="replyCount"")
+		input(type="number", id="replyCount_#{post.id}", min="0", value="#{post.replyCount ? post.replyCount : 0}", name="replyCount")
 
-	button(type="submit", class="ranking") Go
+	fieldset
+		legend Sagens løsning:
+		ol
+			li
+				input(type="radio", id="sol_one_#{post.id}", value="solved", name="solution", checked=post.solution == "solved")
+				label(for="sol_one_#{post.id}") Løst på Facebook
+			li
+				input(type="radio", id="sol_two_#{post.id}", value="escalated", name="solution", checked=post.solution == "escalated")
+				label(for="sol_two_#{post.id}") Eskaleret/rykket væk fra Facebook
+			li
+				input(type="radio", id="sol_three_#{post.id}", value="notsolved", name="solution", checked=post.solution == "notsolved" || !post.solution)
+				label(for="sol_three_#{post.id}") Ikke løst
+
+	button(type="submit", class="ranking") Gem

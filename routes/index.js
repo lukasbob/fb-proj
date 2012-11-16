@@ -52,7 +52,9 @@ exports.updatePost = function(req, res) {
 	var tone = req.param("tone");
 	var replyCount = req.param("replyCount");
 	var companyResponse = req.param("companyResponse");
-	postProvider.setCategoryAndRating(req.params.name, req.params.pid, cat, tone, replyCount, companyResponse, function(err, post){
+	var solution = req.param("solution");
+	console.log(solution);
+	postProvider.setCategoryAndRating(req.params.name, req.params.pid, cat, tone, replyCount, companyResponse, solution, function(err, post){
 		res.send(200);
 	});
 };

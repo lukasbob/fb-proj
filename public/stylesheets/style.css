@@ -235,7 +235,9 @@ h1 {
   color: #8cbba7;
   font-weight: bold;
 }
-.toneForm fieldset label {
+.toneForm fieldset label,
+.toneForm p label.inline {
+  display: inline;
   padding-left: 10px;
 }
 .pg {
