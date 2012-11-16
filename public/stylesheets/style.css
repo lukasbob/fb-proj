@@ -206,6 +206,9 @@ h1 {
 .comment.preferred[data-from=id_122386617773431]::before {
   content: "TDCs svar";
 }
+.debug {
+  display: none;
+}
 .toneForm {
   color: #dddddd;
   position: fixed;

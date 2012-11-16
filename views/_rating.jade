@@ -1,4 +1,5 @@
 form(action="#{base}/post/#{post.id}", method="post", class="toneForm #{post.saved ? 'saved' : ''}")
+	pre.debug= JSON.stringify(post, null, "  ")
 	p
 		label(for="category_#{post.id}") Kategori:
 		input(type="text", id="category_#{post.id}", value="#{post.category ? post.category : ''}", name="category", list="categories_#{post.id}", autofocus)
