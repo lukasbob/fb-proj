@@ -44,6 +44,27 @@ PostProvider.prototype.findAll = function (name, limit, skip, fn) {
 	});
 };
 
+PostProvider.prototype.findAllTest = function(name, limit, skip, fn){
+	this.getCollection(name, function(err, coll) {
+		if (err) { fn(err); return; }
+		// var options = {
+		// 	"limit": 10,
+		// 	"skip": skip ? skip : 0
+		// };
+		var options = {};
+		console.log(options);
+		var cursor = coll.find({"companyResponse": /taler/i}, options);
+		cursor.count(function(err, totalPosts){
+			cursor.sort({ "created_time": 1 }).toArray(function (err, res) {
+				if (err) { fn(err); }
+				else {
+					fn(null, res, totalPosts);
+				}
+			});
+		});
+	});
+};
+
 PostProvider.prototype.updateComments = function (name, id, comments, fn) {
 	this.getCollection(name, function (err, coll) {
 		if (err) {
@@ -60,7 +81,7 @@ PostProvider.prototype.updateComments = function (name, id, comments, fn) {
 	});
 };
 
-PostProvider.prototype.setCategoryAndRating = function (name, id, category, rating, replyCount, companyResponse, solution, fn) {
+PostProvider.prototype.setCategoryAndRating = function (name, id, category, rating, replyCount, companyResponse, companyTone, solution, fn) {
 	this.getCollection(name, function (err, coll) {
 		if (err) {
 			fn(err);
@@ -73,6 +94,7 @@ PostProvider.prototype.setCategoryAndRating = function (name, id, category, rati
 					category: category,
 					rating: rating,
 					companyResponse: companyResponse,
+					companyTone: companyTone,
 					replyCount: replyCount,
 					solution: solution
 				}

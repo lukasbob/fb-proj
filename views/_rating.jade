@@ -2,18 +2,18 @@ form(action="#{base}/post/#{post.id}", method="post", class="toneForm #{post.sav
 	pre.debug= JSON.stringify(post, null, "  ")
 	p
 		label(for="category_#{post.id}") Kategori:
-		input(type="text", id="category_#{post.id}", value="#{post.category ? post.category : ''}", name="category", list="categories_#{post.id}", autofocus)
-		datalist(id="categories_#{post.id}")
-			option Salg
-			option Support
-			option Kundeservice
-			option Klage
-			option Opsigelse
-			option Ude af kontekst
+		select(id="category_#{post.id}", name="category", autofocus)
+			option.label --- Vælg en kategori ---
+			option(value="PR/Salg", selected = post.category == "PR/Salg") PR/Salg
+			option(value="PBS", selected = post.category == "PBS") PBS
+			option(value="Ros", selected = post.category == "Ros") Ros
+			option(value="Klage", selected = post.category == "Klage") Klage
+			option(value="Øvrig kundeservice", selected = post.category == "Øvrig kundeservice") Øvrig kundeservice
+			option(value="Ude af kontekst", selected = post.category == "Ude af kontekst") Ude af kontekst
 
 	fieldset
 		legend Tonen på kundens indlæg:
-		ol
+		ol.inline
 			li
 				input(type="radio", id="one_#{post.id}", value="1", name="tone", checked=post.rating == 1)
 				label(for="one_#{post.id}") Meget negativ
@@ -30,13 +30,40 @@ form(action="#{base}/post/#{post.id}", method="post", class="toneForm #{post.sav
 				input(type="radio", id="five_#{post.id}", value="5", name="tone", checked=post.rating == 5)
 				label(for="five_#{post.id}") Meget positiv
 
-	p
-		label(for="category_#{post.id}") Tonen på firmaets respons:
-		input(type="text", id="company_#{post.id}", value="#{post.companyResponse ? post.companyResponse : ''}", name="companyResponse", list="tone_#{post.id}")
-		datalist(id="tone_#{post.id}")
-			option Empatisk
-			option Nedladende
+	fieldset
 
+
+		legend Tonen på firmaets respons:
+		ol.inline
+			li
+				input(type="radio", id="tone_1_#{post.id}", value="1", name="companyTone", checked=post.companyTone == 1)
+				label(for="tone_1_#{post.id}") Meget negativ
+			li
+				input(type="radio", id="tone_2_#{post.id}", value="2", name="companyTone", checked=post.companyTone == 2)
+				label(for="tone_2_#{post.id}") Negativ
+			li
+				input(type="radio", id="tone_3_#{post.id}", value="3", name="companyTone", checked=post.companyTone == 3 || !post.companyTone)
+				label(for="tone_3_#{post.id}") Neutral
+			li
+				input(type="radio", id="tone_4_#{post.id}", value="4", name="companyTone", checked=post.companyTone == 4)
+				label(for="tone_4_#{post.id}") Positiv
+			li
+				input(type="radio", id="tone_5_#{post.id}", value="5", name="companyTone", checked=post.companyTone == 5)
+				label(for="tone_5_#{post.id}") Meget positiv
+
+	p
+		label(for="companyResponse_#{post.id}") Svarets type:
+		select(name="companyResponse", id="companyResponse_#{post.id}")
+			option.label --- Vælg firmaets svartype ---
+			option(value="Afsluttende", selected = post.companyResponse == "Afsluttende") Afsluttende
+			option(value="Standardiseret", selected = post.companyResponse == "Standardiseret") Standardiseret
+			option(value="Empatisk", selected = post.companyResponse == "Empatisk") Empatisk
+			option(value="Informativ", selected = post.companyResponse == "informativ") Informativ
+			option(value="Kort for hovedet", selected = post.companyResponse == "kort for hovedet") Kort for hovedet
+			option(value="Muntert", selected = post.companyResponse == "Muntert") Muntert
+			option(value="Salg", selected = post.companyResponse == "Salg") Salg
+			option(value="Nedladende", selected = post.companyResponse == "Nedladende") Nedladende
+			option(value="Taknemmelige", selected = post.companyResponse == "Taknemmelige") Taknemmelige
 	p
 		label(for="replyCount_#{post.id}") Antal svar indtil løsning
 		input(type="number", id="replyCount_#{post.id}", min="0", value="#{post.replyCount ? post.replyCount : 0}", name="replyCount")

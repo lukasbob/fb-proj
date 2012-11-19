@@ -130,7 +130,7 @@ a {
   text-decoration: none;
 }
 body {
-  font: 17px/1.4 "Helvetica";
+  font: 15px/1.4 "Helvetica";
   background: #333333;
   color: #555555;
 }
@@ -176,6 +176,17 @@ h1 {
   color: #dddddd;
   text-align: center;
 }
+.toneForm ol.inline li {
+  width: 70px;
+  float: left;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+.toneForm ol.inline li label {
+  display: block;
+  padding-left: 0;
+}
 .comment {
   padding: 30px 15px 15px;
   border-bottom: 1px solid #ddd;
@@ -220,8 +231,18 @@ h1 {
 .toneForm.saved {
   background: #225d2c;
 }
+.toneForm select {
+  -webkit-appearance: none;
+  position: relative;
+}
+.toneForm option.label {
+  color: #333;
+}
+.toneForm select,
 .toneForm input[type="text"],
 .toneForm input[type="number"] {
+  font-family: helvetica, arial;
+  font-size: 14px;
   width: 300px;
   line-height: 22px;
   border: 1px solid #bbb;

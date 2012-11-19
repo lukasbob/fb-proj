@@ -43,6 +43,7 @@ app.locals.date = function(txt) {
  * Routes
  */
 app.get("/", routes.index);
+app.get('/q/:name/test', routes.test);
 app.get('/c/:name/:page?', routes.list);
 app.post('/c/:name/comment/:cid', routes.comment);
 app.get('/c/:name/posts/:pid', routes.posts);

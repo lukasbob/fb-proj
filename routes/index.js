@@ -52,9 +52,9 @@ exports.updatePost = function(req, res) {
 	var tone = req.param("tone");
 	var replyCount = req.param("replyCount");
 	var companyResponse = req.param("companyResponse");
+	var companyTone = req.param("companyTone");
 	var solution = req.param("solution");
-	console.log(solution);
-	postProvider.setCategoryAndRating(req.params.name, req.params.pid, cat, tone, replyCount, companyResponse, solution, function(err, post){
+	postProvider.setCategoryAndRating(req.params.name, req.params.pid, cat, tone, replyCount, companyResponse, companyTone, solution, function(err, post){
 		res.send(200);
 	});
 };
@@ -65,5 +65,13 @@ exports.updatePost = function(req, res) {
 exports.posts = function (req, res) {
 	postProvider.findById(req.params.name, req.params.pid, function(err, post){
 		res.send(post);
+	});
+};
+
+exports.test = function(req, res) {
+	var page = parseInt((req.params.page || 0), 10);
+	var skip = page * limit;
+	postProvider.findAllTest(req.params.name, limit, skip, function(err, posts){
+		res.send(posts);
 	});
 };

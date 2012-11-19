@@ -42,12 +42,12 @@ var events = {
 	".ranking click": rankingSubmit
 };
 
-$(window).on("keyup", function(e){
-	switch(e.keyCode) {
-		case 39: $('.next').trigger("click"); break;
-		case 37: $('.prev').trigger("click"); break;
-	}
-});
+// $(window).on("keyup", function(e){
+// 	switch(e.keyCode) {
+// 		case 39: $('.next').trigger("click"); break;
+// 		case 37: $('.prev').trigger("click"); break;
+// 	}
+// });
 
 /**
  * Event delegation
