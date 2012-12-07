@@ -4,12 +4,12 @@ form(action="#{base}/post/#{post.id}", method="post", class="toneForm #{post.sav
 		label(for="category_#{post.id}") Kategori:
 		select(id="category_#{post.id}", name="category", autofocus)
 			option.label --- Vælg en kategori ---
-			option(value="PR/Salg", selected = post.category == "PR/Salg") PR/Salg
-			option(value="PBS", selected = post.category == "PBS") PBS
-			option(value="Ros", selected = post.category == "Ros") Ros
-			option(value="Klage", selected = post.category == "Klage") Klage
+			option(value="PR/Salg",            selected = post.category == "PR/Salg") PR/Salg
+			option(value="PBS",                selected = post.category == "PBS") PBS
+			option(value="Ros",                selected = post.category == "Ros") Ros
+			option(value="Klage",              selected = post.category == "Klage") Klage
 			option(value="Øvrig kundeservice", selected = post.category == "Øvrig kundeservice") Øvrig kundeservice
-			option(value="Ude af kontekst", selected = post.category == "Ude af kontekst") Ude af kontekst
+			option(value="Ude af kontekst",    selected = post.category == "Ude af kontekst") Ude af kontekst
 
 	fieldset
 		legend Tonen på kundens indlæg:

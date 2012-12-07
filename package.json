@@ -8,6 +8,7 @@
   "dependencies": {
     "express": "3.0.1",
     "mongodb": "1.1.11",
+    "mongoose": "*",
     "jade": "*",
     "underscore": "*",
     "less-middleware": "*"

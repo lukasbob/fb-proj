@@ -5,11 +5,7 @@ var BSON = require('mongodb').BSON;
 var ObjectID = require('mongodb').ObjectID;
 
 var PostProvider = function (host, port) {
-	this.db = new Db("fbproj", new Server(host, port, {
-		auto_reconnect: true
-	}, {}), {
-		safe: true
-	});
+	this.db = new Db("fbproj", new Server(host, port, { auto_reconnect: true }, {}), { safe: true });
 	this.db.open(function () {});
 };
 
@@ -47,13 +43,8 @@ PostProvider.prototype.findAll = function (name, limit, skip, fn) {
 PostProvider.prototype.findAllTest = function(name, limit, skip, fn){
 	this.getCollection(name, function(err, coll) {
 		if (err) { fn(err); return; }
-		// var options = {
-		// 	"limit": 10,
-		// 	"skip": skip ? skip : 0
-		// };
 		var options = {};
-		console.log(options);
-		var cursor = coll.find({"companyResponse": /taler/i}, options);
+		var cursor = coll.find({ "companyResponse": /taler/i }, options);
 		cursor.count(function(err, totalPosts){
 			cursor.sort({ "created_time": 1 }).toArray(function (err, res) {
 				if (err) { fn(err); }
@@ -70,35 +61,18 @@ PostProvider.prototype.updateComments = function (name, id, comments, fn) {
 		if (err) {
 			fn(err);
 		} else {
-			coll.update({
-				id: id
-			}, {
-				$set: {
-					"comments.data": comments
-				}
-			}, fn);
+			coll.update({ id: id }, { $set: { "comments.data": comments } }, fn);
 		}
 	});
 };
 
-PostProvider.prototype.setCategoryAndRating = function (name, id, category, rating, replyCount, companyResponse, companyTone, solution, fn) {
+PostProvider.prototype.updatePost = function (name, id, params, fn) {
+	params.saved = true;
 	this.getCollection(name, function (err, coll) {
 		if (err) {
 			fn(err);
 		} else {
-			coll.update({
-				id: id
-			}, {
-				$set: {
-					saved: true,
-					category: category,
-					rating: rating,
-					companyResponse: companyResponse,
-					companyTone: companyTone,
-					replyCount: replyCount,
-					solution: solution
-				}
-			}, fn);
+			coll.update({ id: id }, { $set: params }, fn);
 		}
 	});
 };
@@ -117,13 +91,7 @@ PostProvider.prototype.togglePreferredComment = function (name, id, isPreferred,
 					}
 					return c;
 				});
-				coll.update({
-					id: postId
-				}, {
-					$set: {
-						"comments.data": comments
-					}
-				}, fn);
+				coll.update({ id: postId }, { $set: { "comments.data": comments } }, fn);
 			});
 
 		}
@@ -135,9 +103,7 @@ PostProvider.prototype.findById = function (name, id, fn) {
 		if (err) {
 			fn(err);
 		} else {
-			coll.findOne({
-				id: id
-			}, fn);
+			coll.findOne({ id: id }, fn);
 		}
 	});
 };

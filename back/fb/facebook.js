@@ -4,19 +4,19 @@ var auth = require("./auth");
 var config = require("./../../config");
 var PostProvider = require("../persistence/PostProvider").PostProvider;
 
-var postProvider = new PostProvider(config.mongo.host, config.mongo.port, "tdc");
+var postProvider = new PostProvider(config.mongo.host, config.mongo.port);
 
-function pad(number) { return (number < 10 ? '0' : '') + number; }
 function unixTs(date) { return Math.round(date.getTime() / 1000); }
-function fileTs(date) { return [date.getFullYear(), pad(date.getMonth() + 1), pad(date.getDate())].join(""); }
 
 function getComment(name, token, id) {
+	var response = "";
+
 	var options = {
 		host: "graph.facebook.com",
 		path: "/" + id + "/comments?access_token=" + token,
 		port: 443
 	};
-	var response = "";
+
 	https.get(options, function (resp) {
 		resp.on("data", function(d){
 			response += d;
@@ -31,71 +31,97 @@ function getComment(name, token, id) {
 	});
 }
 
-function makeRequest(token) {
 
-	var startdate = new Date(2012, 9, 1, 0, 0, 0, 0);
-	var enddate = new Date(2012, 9, 31, 0, 0, 0, 0);
-	//enddate.setDate(startdate.getDate() + 30);
+function makeRequest(token) {
+	var commentUpdatesNeeded = { "telenor": [], "tdc": [] };
+
+	// Telenor
+	// var incidentdate = new Date(2012, 7, 2, 0, 0, 0, 0);
+	// var startdate = new Date(2012, 6, 16, 0,0,0,0);
+	// var workingEnddate = new Date(2012, 6, 16, 0,0,0,0);
+	// var workingStartdate = new Date(2012, 6, 15, 0,0,0,0);
+	// var enddate = new Date(2012, 7, 17, 0,0,0,0);
+
+	// TDC
+	var incidentdate = new Date(2012, 9, 13, 0, 0, 0, 0);
+	var startdate = new Date(2012, 8, 29, 0,0,0,0);
+	var workingEnddate = new Date(2012, 8, 29, 0,0,0,0);
+	var workingStartdate = new Date(2012, 8, 28, 0,0,0,0);
+	var enddate = new Date(2012, 9, 28, 0,0,0,0);
+
+	console.log(startdate);
+	console.log(enddate);
 
 	var pages = [/*{
 		name: "telenor",
 		id: 224393774239629
-	}*/{
+	}, */{
 		name: "tdc",
 		id: 122386617773431
 	}];
 
-	var query = "feed.fields(message,from.name,comments)" + ".since(" + unixTs(startdate) + ")" + ".until(" + unixTs(enddate) + ")" + ".limit(1000)";
-
-	console.log("startdate: " + startdate);
-	console.log("enddate: " + enddate);
-	console.log("query: " + query);
-
-	pages.forEach(function (page, i) {
-		var fileName = page.name + "_" + fileTs(startdate) + "-" + fileTs(enddate) + ".json";
-		var options = {
-			host: "graph.facebook.com",
-			path: "/" + page.id + "?access_token=" + token + "&fields=" + query,
-			port: 443
-		};
-
-		var response = "";
-		var commentUpdatesNeeded = [];
-		console.log("Getting data for " + page.name + "...");
-		https.get(options, function (resp) {
-			resp.on("data", function (d) {
-				process.stdout.write(".");
-				response += d;
+	function getPosts() {
+		if (workingEnddate > enddate) {
+			commentUpdatesNeeded.telenor.forEach(function (id, i) {
+				getComment("telenor", token, id);
 			});
+			commentUpdatesNeeded.tdc.forEach(function (id, i) {
+				getComment("tdc", token, id);
+			});
+			return;
+		}
 
-			resp.on("end", function () {
-				console.log("\nSaving to " + fileName + "...");
-				var output = JSON.parse(response);
+		workingStartdate.setDate(workingStartdate.getDate() + 1);
+		workingEnddate.setDate(workingEnddate.getDate() + 1);
 
-				output.feed.data.forEach(function(post, i){
-					if (post.comments.count > 0 && post.comments.data && post.comments.data.length !== post.comments.count) {
-						commentUpdatesNeeded.push(post.id);
-					}
+		console.log(workingStartdate);
+		console.log(workingEnddate);
+
+		var query = "feed.fields(message,from.name,comments)"
+		          + ".since(" + unixTs(workingStartdate) + ")"
+		          + ".until(" + unixTs(workingEnddate) + ")"
+		          + ".limit(1000)";
+
+		pages.forEach(function (page, i) {
+			var options = {
+				host: "graph.facebook.com",
+				path: "/" + page.id + "?access_token=" + token + "&fields=" + query,
+				port: 443
+			};
+
+			console.log("Getting data for " + page.name + "...");
+			https.get(options, function (resp) {
+				var response = "";
+				resp.on("data", function (d) {
+					process.stdout.write(".");
+					response += d;
 				});
 
-				console.log("Needs comments update: " + commentUpdatesNeeded.length);
+				resp.on("end", function () {
+					var output = JSON.parse(response);
 
-				commentUpdatesNeeded.forEach(function (id, i) {
-					getComment(page.name, token, id);
-					if (i === commentUpdatesNeeded.length - 1) {
-						console.log("done updating comments.");
-					}
+					output.feed.data.forEach(function(post, i){
+						if (post.comments.count > 0 && post.comments.data && post.comments.data.length !== post.comments.count) {
+							commentUpdatesNeeded[page.name].push(post.id);
+						}
+					});
+
+					console.log("Needs comments update: " + commentUpdatesNeeded[page.name].length);
+
+
+
+					postProvider.save(page.name, output.feed.data, function(err, res){
+						console.log(res.length + " posts saved.");
+						postProvider.db.close();
+						console.log("Done!");
+						getPosts();
+					});
+
 				});
-
-				postProvider.save(page.name, output.feed.data, function(err, res){
-					console.log(res.length);
-					postProvider.db.close();
-					console.log("Done!");
-				});
-
 			});
 		});
-	});
+	}
+	getPosts();
 }
 
 auth.obtainToken(makeRequest);

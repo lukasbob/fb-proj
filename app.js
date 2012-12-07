@@ -38,7 +38,6 @@ app.locals.date = function(txt) {
 	return new Date(txt).toLocaleString();
 };
 
-
 /**
  * Routes
  */
@@ -48,6 +47,9 @@ app.get('/c/:name/:page?', routes.list);
 app.post('/c/:name/comment/:cid', routes.comment);
 app.get('/c/:name/posts/:pid', routes.posts);
 app.post('/c/:name/post/:pid', routes.updatePost);
+
+app.get('/q/:name/response', routes.response);
+
 /**
  * Setup server
  */
