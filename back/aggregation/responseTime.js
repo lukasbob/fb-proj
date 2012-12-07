@@ -34,7 +34,7 @@ db.open(function (err, db) {
 						};
 						return new Date(output.year, output.month - 1, output.date, output.hours, output.minutes, output.seconds);
 					};
-				var key = this.id;
+				var key = this._id;
 				var values = {
 					id: this.id,
 					postDate: parseDate(this.created_time),
